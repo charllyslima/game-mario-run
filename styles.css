@@ -32,6 +32,17 @@
   width: 100vw;
   left: 0%; }
 
+.logo {
+  width: 100%;
+  position: absolute;
+  top: 30vh;
+  text-align: center; }
+
+#name-game {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%; }
+
 .controls {
   position: absolute;
   width: 100%;
@@ -47,12 +58,12 @@
     margin-top: 10px; }
   .controls #yoshi-left {
     position: absolute;
-    left: 40vw;
+    left: 30%;
     top: 0;
     width: 75px; }
   .controls #yoshi-right {
     position: absolute;
-    right: 40vw;
+    right: 30%;
     top: 0;
     width: 75px; }
 
