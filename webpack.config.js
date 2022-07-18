@@ -48,9 +48,20 @@ module.exports = {
                     outputPath: "assets",
                     publicPath: "assets",
                     emitFile: true,
-                    esModule: false
+                    esModule: false,
                 },
-            }
+            },
+            {
+                test: /\.(mp3|wav)$/i,
+                loader: "file-loader",
+                options: {
+                    name: "[name].[hash:6].[ext]",
+                    outputPath: "assets",
+                    publicPath: "assets",
+                    emitFile: true,
+                    esModule: false,
+                },
+            },
         ],
     },
 };
