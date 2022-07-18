@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Charllys de Lima">
     <title>Mario Run</title>
+    <link rel="icon" href="<%=require('./assets/img/favicon.png')%>" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
-    
+    <div class="game-board">
+        <div class="controls">
+            <img src="<%=require('./assets/img/yoshi-dance.gif')%>" alt="Yoshi-Dance" id="yoshi-left">
+            <button id="start" class="blink">START</button>
+            <button class="fa-solid fa-volume-xmark" id="sound"></button>
+            <img src="<%=require('./assets/img/yoshi-dance.gif')%>" alt="Yoshi-Dance" id="yoshi-right">
+            <!-- <button id="restart" class="hidden blink">RESTART</button> -->
+
+        </div>
+        <img src="<%=require('./assets/img/floor.png')%>" alt="Floor" id="floor-pt1">
+        <img src="<%=require('./assets/img/floor.png')%>" alt="Floor" id="floor-pt2">
+
+    </div>
 </body>
+
 </html>

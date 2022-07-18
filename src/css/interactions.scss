@@ -1,0 +1,25 @@
+.floor-move-pt1 {
+    animation: floor-move-pt1 3s linear infinite;
+}
+
+.floor-move-pt2 {
+    animation: floor-move-pt2 3s linear infinite;
+}
+
+@keyframes floor-move-pt1 {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes floor-move-pt2 {
+    from {
+        left: 0%;
+    }
+    to {
+        left: -100%;
+    }
+}
