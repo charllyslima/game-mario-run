@@ -6,6 +6,11 @@
     animation: floor-move-pt2 3s linear infinite;
 }
 
+.jump {
+    animation: jump 250ms 2 ease-out;
+    animation-direction: alternate;
+}
+
 @keyframes floor-move-pt1 {
     from {
         left: 100%;
@@ -21,5 +26,14 @@
     }
     to {
         left: -100%;
+    }
+}
+
+@keyframes jump {
+    from {
+        bottom: 0px;
+    }
+    to {
+        bottom: 200%;
     }
 }

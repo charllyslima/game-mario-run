@@ -12,9 +12,12 @@ const audioPipe = document.querySelector("#pipe");
 const audioJump = document.querySelector("#jump");
 const audioMarioDie = document.querySelector("#mario-die");
 
+const mario = document.querySelector("#mario");
+
 window.addEventListener("load", function () {
     buttonStart.addEventListener("click", start);
     buttonSound.addEventListener("click", soundOnOff);
+    document.addEventListener("keydown", jump);
 });
 
 const start = () => {
@@ -31,5 +34,14 @@ const soundOnOff = () => {
         buttonSound.classList.add("fa-volume-high");
         buttonSound.classList.remove("fa-volume-xmark");
         audioTheme.play();
+    }
+};
+
+const jump = () => {
+    if (!mario.classList.contains("jump")) {
+        mario.classList.add("jump");
+        setTimeout(() => {
+            mario.classList.remove("jump");
+        }, 500);
     }
 };

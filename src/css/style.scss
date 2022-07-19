@@ -74,15 +74,41 @@
         top: 0;
         width: 75px;
     }
+    button {
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+    }
 }
 
-button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
+.game {
+    position: absolute;
+    bottom: 20px;
+    z-index: 1;
+    height: 20%;
+    width: 100%;
+
+    img {
+        height: 75%;
+    }
+
+    #mario {
+        position: absolute;
+        left: 10%;
+        height: 100%;
+    }
+
+    #piranha-bean, #goomba {
+        position: absolute;
+        bottom: 0px;
+    }
+
+    #goomba{
+        height: 40%;
+    }
 }
 
 @keyframes blink-animation {
