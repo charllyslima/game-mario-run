@@ -17,7 +17,54 @@
     background: linear-gradient(#87ceeb, #e0f6ff);
 
     .controls {
+        position: absolute;
         width: 100%;
+        height: 100%;
+
+        min-height: 400px;
+        .logo {
+            margin-top: 20vh;
+        }
+
+        #start,
+        #restart,
+        #sound {
+            margin-top: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            z-index: 2;
+        }
+
+        #sound {
+            margin-top: 10px;
+        }
+
+        #yoshi-left {
+            position: absolute;
+            left: 30%;
+            top: 35vh;
+            width: 75px;
+            z-index: 2;
+        }
+        #yoshi-right {
+            position: absolute;
+            right: 30%;
+            top: 35vh;
+            width: 75px;
+            z-index: 2;
+        }
+
+        button {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+            z-index: 2;
+        }
     }
 }
 
@@ -34,54 +81,14 @@
 }
 .logo {
     width: 100%;
-    position: absolute;
-    top: 30vh;
+
     text-align: center;
+    z-index: 2;
 }
 #name-game {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
-}
-
-.controls {
-    position: absolute;
-    width: 100%;
-    top: 50vh;
-
-    #start,
-    #restart,
-    #sound {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
-    #sound {
-        margin-top: 10px;
-    }
-
-    #yoshi-left {
-        position: absolute;
-        left: 30%;
-        top: 0;
-        width: 75px;
-    }
-    #yoshi-right {
-        position: absolute;
-        right: 30%;
-        top: 0;
-        width: 75px;
-    }
-    button {
-        background-color: Transparent;
-        background-repeat: no-repeat;
-        border: none;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-    }
 }
 
 .game {
@@ -92,23 +99,54 @@
     width: 100%;
 
     img {
+        position: absolute;
         height: 75%;
     }
 
     #mario {
-        position: absolute;
-        left: 10%;
-        height: 100%;
+        left: -20%;
+    }
+    #princess,
+    #bowser {
+        left: -50%;
+    }
+    #pipe-horizontal {
+        height: 120%;
+        left: -200px;
+        bottom: 0;
+    }
+    #piranha-bean,
+    #goomba {
+        bottom: 0px;
+        right: -10%;
     }
 
-    #piranha-bean, #goomba {
+    #goomba {
+        height: 40%;
+        right: -10%;
+    }
+    #carnivorous-plant {
         position: absolute;
         bottom: 0px;
-    }
+        height: 75%;
+        width: 3%;
+        right: -10%;
+        #pipe {
+            position: absolute;
+            bottom: 0px;
+            z-index: 9;
+        }
 
-    #goomba{
-        height: 40%;
+        #plant {
+            position: absolute;
+            bottom: 0px;
+            left: 30%;
+        }
     }
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes blink-animation {

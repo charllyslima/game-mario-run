@@ -1,3 +1,7 @@
+:root {
+    --atackSpeed: 2000;
+}
+
 .floor-move-pt1 {
     animation: floor-move-pt1 3s linear infinite;
 }
@@ -9,6 +13,34 @@
 .jump {
     animation: jump 250ms 2 ease-out;
     animation-direction: alternate;
+}
+
+.running-away {
+    animation: running-away 4s linear;
+}
+
+.chasing {
+    animation: chasing 4.2s linear;
+}
+
+.attack {
+    animation: attack var(--atackSpeed) linear;
+}
+
+#plant {
+    animation: plant-animation 1750ms linear infinite;
+}
+
+.start {
+    #mario {
+        animation-delay: 4s !important;
+        animation: mario-entering 2s linear;
+    }
+    #pipe-horizontal {
+        animation-delay: 4s !important;
+        animation: pipe-entering 2s 2 ease-out;
+        animation-direction: alternate;
+    }
 }
 
 @keyframes floor-move-pt1 {
@@ -31,9 +63,67 @@
 
 @keyframes jump {
     from {
-        bottom: 0px;
+        bottom: 20px;
     }
     to {
         bottom: 200%;
+    }
+}
+
+@keyframes running-away {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 110%;
+    }
+}
+
+@keyframes chasing {
+    from {
+        left: -70%;
+    }
+    to {
+        left: 110%;
+    }
+}
+
+@keyframes attack {
+    from {
+        right: -20%;
+    }
+
+    to {
+        right: 120%;
+    }
+}
+
+@keyframes plant-animation {
+    0% {
+        bottom: 0px;
+    }
+    50% {
+        bottom: 10vh;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
+
+@keyframes pipe-entering {
+    from {
+        left: -200px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes mario-entering {
+    from {
+        left: -20%;
+    }
+    to {
+        left: 10%;
     }
 }

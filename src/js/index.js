@@ -8,11 +8,18 @@ const buttonStart = document.querySelector("#start");
 const buttonSound = document.querySelector("#sound");
 
 const audioTheme = document.querySelector("#theme-song");
-const audioPipe = document.querySelector("#pipe");
-const audioJump = document.querySelector("#jump");
-const audioMarioDie = document.querySelector("#mario-die");
+const audioPipe = document.querySelector("#pipe-audio");
+const audioJump = document.querySelector("#jump-audio");
+const audioMarioDie = document.querySelector("#mario-die-audio");
 
 const mario = document.querySelector("#mario");
+const piranhaBean = document.querySelector("#piranha-bean");
+const goomba = document.querySelector("#goomba");
+const bowser = document.querySelector("#bowser");
+const princess = document.querySelector("#princess");
+
+const controls = document.querySelector(".controls");
+const game = document.querySelector(".game");
 
 window.addEventListener("load", function () {
     buttonStart.addEventListener("click", start);
@@ -21,8 +28,34 @@ window.addEventListener("load", function () {
 });
 
 const start = () => {
+    controls.classList.add("hidden");
+    game.classList.remove("hidden");
+
     floorPt1.classList.add("floor-move-pt1");
     floorPt2.classList.add("floor-move-pt2");
+
+    // animation princess running
+    princess.classList.remove("hidden");
+    bowser.classList.remove("hidden");
+    princess.classList.add("running-away");
+    bowser.classList.add("chasing");
+    game.classList.add("start");
+
+    setTimeout(() => {
+        floorPt1.classList.remove("floor-move-pt1");
+        floorPt2.classList.remove("floor-move-pt2");
+        setTimeout(() => {
+            audioPipe.play();
+        }, 1500);
+        setTimeout(() => {
+            mario.style.left = "10%";
+            floorPt1.classList.add("floor-move-pt1");
+            floorPt2.classList.add("floor-move-pt2");
+            setTimeout(() => {
+                game.classList.remove("start");
+            }, 2000);
+        }, 2000);
+    }, 4000);
 };
 
 const soundOnOff = () => {

@@ -17,10 +17,11 @@
 
 <body>
     <div class="game-board">
-        <div class="logo">
-            <img src="<%=require('./assets/img/name.png')%>" alt="Name Game" id="name-game">
-        </div>
+
         <div class="controls">
+            <div class="logo">
+                <img src="<%=require('./assets/img/name.png')%>" alt="Name Game" id="name-game">
+            </div>
             <img src="<%=require('./assets/img/yoshi-dance.gif')%>" alt="Yoshi-Dance" id="yoshi-left">
             <button id="start" class="blink">START</button>
             <button class="fa-solid fa-volume-xmark" id="sound"></button>
@@ -33,6 +34,12 @@
             <img src="<%=require('./assets/img/piranha-bean.gif')%>" alt="" id="piranha-bean">
             <img src="<%=require('./assets/img/goomba.gif')%>" alt="" id="goomba">
             <img src="<%=require('./assets/img/bowser.gif')%>" alt="" id="bowser">
+            <img src="<%=require('./assets/img/princess.gif')%>" alt="" id="princess">
+            <div id="carnivorous-plant">
+                <img src="<%=require('./assets/img/pipe_v.png')%>" alt="" class="pipe" id="pipe" />
+                <img src="<%=require('./assets/img/plant.png')%>" alt="" class="pipe" id="plant" />
+            </div>
+            <img src="<%=require('./assets/img/pipe_h.png')%>" alt="" id="pipe-horizontal">
         </div>
         <img src="<%=require('./assets/img/floor.png')%>" alt="Floor" id="floor-pt1">
         <img src="<%=require('./assets/img/floor.png')%>" alt="Floor" id="floor-pt2">
@@ -41,9 +48,9 @@
     <div>
         <audio id="theme-song" src="<%=require('./assets/sounds/theme_song.mp3')%>" id="background-sound"
             loop="loop"></audio>
-        <audio id="pipe" src="<%=require('./assets/sounds/pipe.wav')%>"></audio>
-        <audio id="jump" src="<%=require('./assets/sounds/jump.wav')%>"></audio>
-        <audio id="mario-die" src="<%=require('./assets/sounds/mario_die.wav')%>"></audio>
+        <audio id="pipe-audio" src="<%=require('./assets/sounds/pipe.wav')%>"></audio>
+        <audio id="jump-audio" src="<%=require('./assets/sounds/jump.wav')%>"></audio>
+        <audio id="mario-die-audio" src="<%=require('./assets/sounds/mario_die.wav')%>"></audio>
     </div>
 </body>
 
