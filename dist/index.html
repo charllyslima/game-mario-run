@@ -17,16 +17,29 @@
 
 <body>
     <div class="game-board">
-        <div class="logo">
-            <img src="assets/name.debb50.png" alt="Name Game" id="name-game">
-        </div>
+
         <div class="controls">
+            <div class="logo">
+                <img src="assets/name.debb50.png" alt="Name Game" id="name-game">
+            </div>
             <img src="assets/yoshi-dance.dfb7c2.gif" alt="Yoshi-Dance" id="yoshi-left">
             <button id="start" class="blink">START</button>
             <button class="fa-solid fa-volume-xmark" id="sound"></button>
             <img src="assets/yoshi-dance.dfb7c2.gif" alt="Yoshi-Dance" id="yoshi-right">
             <!-- <button id="restart" class="hidden blink">RESTART</button> -->
 
+        </div>
+        <div class="game">
+            <img src="assets/mario-yoshi-fast.4abf70.gif" alt="" id="mario">
+            <img src="assets/piranha-bean.bac043.gif" alt="" id="piranha-bean">
+            <img src="assets/goomba.5fe44e.gif" alt="" id="goomba">
+            <img src="assets/bowser.d8a7ec.gif" alt="" id="bowser">
+            <img src="assets/princess.81ee95.gif" alt="" id="princess">
+            <div id="carnivorous-plant">
+                <img src="assets/pipe_v.579e86.png" alt="" class="pipe" id="pipe" />
+                <img src="assets/plant.2e95f3.png" alt="" class="pipe" id="plant" />
+            </div>
+            <img src="assets/pipe_h.de0deb.png" alt="" id="pipe-horizontal">
         </div>
         <img src="assets/floor.26b9b4.png" alt="Floor" id="floor-pt1">
         <img src="assets/floor.26b9b4.png" alt="Floor" id="floor-pt2">
@@ -35,9 +48,9 @@
     <div>
         <audio id="theme-song" src="assets/theme_song.3bf2a0.mp3" id="background-sound"
             loop="loop"></audio>
-        <audio id="pipe" src="assets/pipe.0dff6d.wav"></audio>
-        <audio id="jump" src="assets/jump.1eb4ae.wav"></audio>
-        <audio id="mario-die" src="assets/mario_die.30e7f5.wav"></audio>
+        <audio id="pipe-audio" src="assets/pipe.0dff6d.wav"></audio>
+        <audio id="jump-audio" src="assets/jump.1eb4ae.wav"></audio>
+        <audio id="mario-die-audio" src="assets/mario_die.30e7f5.wav"></audio>
     </div>
 </body>
 
