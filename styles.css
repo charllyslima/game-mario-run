@@ -78,6 +78,14 @@
   margin-right: auto;
   width: 40%; }
 
+.score {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 1%; }
+
 .game {
   position: absolute;
   bottom: 20px;
@@ -88,13 +96,14 @@
     position: absolute;
     height: 75%; }
   .game #mario {
-    left: -20%; }
+    left: -20%;
+    bottom: 0; }
   .game #princess,
   .game #bowser {
     left: -50%; }
   .game #pipe-horizontal {
     height: 120%;
-    left: -200px;
+    left: -20%;
     bottom: 0; }
   .game #piranha-bean,
   .game #goomba {
@@ -137,7 +146,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/interactions.scss ***!
   \********************************************************************************************************************/
 :root {
-  --atackSpeed: 2000; }
+  --atackSpeed: 4000ms; }
 
 .floor-move-pt1 {
   animation: floor-move-pt1 3s linear infinite; }
@@ -156,7 +165,7 @@
   animation: chasing 4.2s linear; }
 
 .attack {
-  animation: attack var(--atackSpeed) linear; }
+  animation: attack var(--atackSpeed) linear infinite; }
 
 #plant {
   animation: plant-animation 1750ms linear infinite; }
@@ -186,7 +195,7 @@
   from {
     bottom: 20px; }
   to {
-    bottom: 200%; } }
+    bottom: 150%; } }
 
 @keyframes running-away {
   from {
@@ -216,7 +225,7 @@
 
 @keyframes pipe-entering {
   from {
-    left: -200px; }
+    left: -20%; }
   to {
     left: 0px; } }
 
