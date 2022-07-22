@@ -110,37 +110,39 @@
     img {
         position: absolute;
         height: 75%;
+        bottom: 0;
     }
-
+    #mario-die {
+        display: none;
+    }
     #mario {
         left: -20%;
-        bottom: 0;
     }
     #princess,
     #bowser {
-        left: -50%;
+        left: -20%;
     }
     #pipe-horizontal {
-        height: 120%;
-        left: -20%;
-        bottom: 0;
+        height: 100%;
+        left: -30%;
+        bottom: -20px;
     }
     #piranha-bean,
     #goomba {
         bottom: 0px;
-        right: -10%;
+        right: -20%;
     }
 
     #goomba {
         height: 40%;
-        right: -10%;
+        right: -20%;
     }
     #carnivorous-plant {
         position: absolute;
         bottom: 0px;
         height: 75%;
         width: 3%;
-        right: -10%;
+        right: -20%;
         #pipe {
             position: absolute;
             bottom: 0px;

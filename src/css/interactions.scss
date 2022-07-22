@@ -1,5 +1,6 @@
 :root {
     --atackSpeed: 4000ms;
+    --positionEnemy: 100px;
 }
 
 .floor-move-pt1 {
@@ -25,6 +26,14 @@
 
 .attack {
     animation: attack var(--atackSpeed) linear infinite;
+}
+
+.special-attack-jump {
+    animation: attack var(--atackSpeed) linear infinite, jump-attack 750ms linear infinite;
+}
+
+.special-attack-forward {
+    animation: forward-attack calc(var(--atackSpeed)*3) linear infinite;
 }
 
 #plant {
@@ -63,10 +72,22 @@
 
 @keyframes jump {
     from {
-        bottom: 20px;
+        bottom: 0px;
     }
     to {
         bottom: 150%;
+    }
+}
+
+@keyframes jump-attack {
+    0% {
+        bottom: 0px;
+    }
+    50% {
+        bottom: 150%;
+    }
+    100% {
+        bottom: 0px;
     }
 }
 
@@ -98,6 +119,39 @@
     }
 }
 
+@keyframes forward-attack {
+    0% {
+        right: -20%;
+    }
+    15% {
+        right: 1%;
+    }
+    30% {
+        right: 22%;
+    }
+    45% {
+        right: 43%;
+    }
+    50% {
+        right: 22%;
+    }
+    60% {
+        right: 64%;
+    }
+    70% {
+        right: 78%;
+    }
+    75%{
+        right: 64%;
+    }
+    80% {
+        right: 92%;
+    }
+    100% {
+        right: 120%;
+    }
+}
+
 @keyframes plant-animation {
     0% {
         bottom: 0px;
@@ -112,7 +166,7 @@
 
 @keyframes pipe-entering {
     from {
-        left: -20%;
+        left: -30%;
     }
     to {
         left: 0px;
