@@ -94,30 +94,32 @@
   width: 100%; }
   .game img {
     position: absolute;
-    height: 75%; }
-  .game #mario {
-    left: -20%;
+    height: 75%;
     bottom: 0; }
+  .game #mario-die {
+    display: none; }
+  .game #mario {
+    left: -20%; }
   .game #princess,
   .game #bowser {
-    left: -50%; }
+    left: -20%; }
   .game #pipe-horizontal {
-    height: 120%;
-    left: -20%;
-    bottom: 0; }
+    height: 100%;
+    left: -30%;
+    bottom: -20px; }
   .game #piranha-bean,
   .game #goomba {
     bottom: 0px;
-    right: -10%; }
+    right: -20%; }
   .game #goomba {
     height: 40%;
-    right: -10%; }
+    right: -20%; }
   .game #carnivorous-plant {
     position: absolute;
     bottom: 0px;
     height: 75%;
     width: 3%;
-    right: -10%; }
+    right: -20%; }
     .game #carnivorous-plant #pipe {
       position: absolute;
       bottom: 0px;
@@ -146,7 +148,8 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/interactions.scss ***!
   \********************************************************************************************************************/
 :root {
-  --atackSpeed: 4000ms; }
+  --atackSpeed: 4000ms;
+  --positionEnemy: 100px; }
 
 .floor-move-pt1 {
   animation: floor-move-pt1 3s linear infinite; }
@@ -166,6 +169,12 @@
 
 .attack {
   animation: attack var(--atackSpeed) linear infinite; }
+
+.special-attack-jump {
+  animation: attack var(--atackSpeed) linear infinite, jump-attack 750ms linear infinite; }
+
+.special-attack-forward {
+  animation: forward-attack calc(var(--atackSpeed)*3) linear infinite; }
 
 #plant {
   animation: plant-animation 1750ms linear infinite; }
@@ -193,9 +202,17 @@
 
 @keyframes jump {
   from {
-    bottom: 20px; }
+    bottom: 0px; }
   to {
     bottom: 150%; } }
+
+@keyframes jump-attack {
+  0% {
+    bottom: 0px; }
+  50% {
+    bottom: 150%; }
+  100% {
+    bottom: 0px; } }
 
 @keyframes running-away {
   from {
@@ -215,6 +232,28 @@
   to {
     right: 120%; } }
 
+@keyframes forward-attack {
+  0% {
+    right: -20%; }
+  15% {
+    right: 1%; }
+  30% {
+    right: 22%; }
+  45% {
+    right: 43%; }
+  50% {
+    right: 22%; }
+  60% {
+    right: 64%; }
+  70% {
+    right: 78%; }
+  75% {
+    right: 64%; }
+  80% {
+    right: 92%; }
+  100% {
+    right: 120%; } }
+
 @keyframes plant-animation {
   0% {
     bottom: 0px; }
@@ -225,7 +264,7 @@
 
 @keyframes pipe-entering {
   from {
-    left: -20%; }
+    left: -30%; }
   to {
     left: 0px; } }
 
