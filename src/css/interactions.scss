@@ -29,7 +29,7 @@
 }
 
 .special-attack-jump {
-    animation: attack var(--atackSpeed) linear infinite, jump-attack 750ms linear infinite;
+    animation: attack var(--atackSpeed) linear infinite, jump-attack 1s linear infinite;
 }
 
 .special-attack-forward {

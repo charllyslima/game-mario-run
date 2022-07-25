@@ -21,6 +21,8 @@ const goomba = document.querySelector("#goomba");
 const bowser = document.querySelector("#bowser");
 const princess = document.querySelector("#princess");
 const carnivorousPlant = document.querySelector("#carnivorous-plant");
+const snake = document.querySelector("#snake");
+const missile = document.querySelector("#missile");
 
 const controls = document.querySelector(".controls");
 const game = document.querySelector(".game");
@@ -29,6 +31,7 @@ const score = document.querySelectorAll(".score span");
 let hitboxDiv = null;
 let atackSpeed = 4000;
 let isStarted = false;
+
 
 window.addEventListener("load", function () {
     buttonStart.addEventListener("click", start);
@@ -77,40 +80,42 @@ const start = () => {
 };
 
 const activateEnemies = () => {
-    let enemies = [carnivorousPlant, piranhaBean, goomba];
+    let enemies = [carnivorousPlant, piranhaBean, goomba, snake, missile];
     let enemie = null;
     let especialAtack = null;
-    const loop = setInterval(() => {
+
+    function repeatingFunc() {
         if (especialAtack) {
             enemies[enemie].classList.remove("jump");
             clearInterval(especialAtack);
         }
-        if (!isStarted) {
-            clearInterval(loop);
-        } else {
-            if (enemie != null) {
-                if (enemie === 2) {
-                    enemies[enemie].classList.remove("special-attack-jump");
-                } else if (enemie === 1) {
-                    enemies[enemie].classList.remove("special-attack-forward");
-                } else {
-                    enemies[enemie].classList.remove("attack");
-                }
 
-                point();
-            }
-
-            enemie = getRndInteger(0, 2);
-
+        if (enemie != null) {
             if (enemie === 2) {
-                enemies[enemie].classList.add("special-attack-jump");
+                enemies[enemie].classList.remove("special-attack-jump");
             } else if (enemie === 1) {
-                enemies[enemie].classList.add("special-attack-forward");
+                enemies[enemie].classList.remove("special-attack-forward");
             } else {
-                enemies[enemie].classList.add("attack");
+                enemies[enemie].classList.remove("attack");
             }
+
+            point();
         }
-    }, atackSpeed);
+
+        enemie = getRndInteger(0, 2);
+
+        if (enemie === 2) {
+            enemies[enemie].classList.add("special-attack-jump");
+        } else if (enemie === 1) {
+            enemies[enemie].classList.add("special-attack-forward");
+        } else {
+            enemies[enemie].classList.add("attack");
+        }
+
+        setTimeout(repeatingFunc, atackSpeed);
+    }
+
+    setTimeout(repeatingFunc, atackSpeed);
 };
 
 const hitbox = () => {

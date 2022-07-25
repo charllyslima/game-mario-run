@@ -106,13 +106,20 @@
     z-index: 1;
     height: 20%;
     width: 100%;
-
+    .enemy {
+        bottom: 0px;
+        right: -20%;
+    }
     img {
         position: absolute;
         height: 75%;
         bottom: 0;
     }
     #mario-die {
+        display: none;
+    }
+    #yoshi-run {
+        height: 50%;
         display: none;
     }
     #mario {
@@ -130,19 +137,16 @@
     #piranha-bean,
     #goomba {
         bottom: 0px;
-        right: -20%;
     }
 
     #goomba {
         height: 40%;
-        right: -20%;
     }
     #carnivorous-plant {
         position: absolute;
         bottom: 0px;
         height: 75%;
         width: 3%;
-        right: -20%;
         #pipe {
             position: absolute;
             bottom: 0px;
