@@ -32,7 +32,6 @@ let hitboxDiv = null;
 let atackSpeed = 4000;
 let isStarted = false;
 
-
 window.addEventListener("load", function () {
     buttonStart.addEventListener("click", start);
     buttonSound.addEventListener("click", soundOnOff);
@@ -81,38 +80,24 @@ const start = () => {
 
 const activateEnemies = () => {
     let enemies = [carnivorousPlant, piranhaBean, goomba, snake, missile];
-    let enemie = null;
+    let enemie = 0;
     let especialAtack = null;
 
     function repeatingFunc() {
-        if (especialAtack) {
-            enemies[enemie].classList.remove("jump");
-            clearInterval(especialAtack);
+        if (enemies[enemie].classList.contains("attack")) {
+            enemies[enemie].classList.remove("attack");
         }
 
-        if (enemie != null) {
-            if (enemie === 2) {
-                enemies[enemie].classList.remove("special-attack-jump");
-            } else if (enemie === 1) {
-                enemies[enemie].classList.remove("special-attack-forward");
-            } else {
-                enemies[enemie].classList.remove("attack");
-            }
-
-            point();
+        if (isStarted) {
+            setTimeout(() => {
+                let atackSpeedTemp = getRndInteger(atackSpeed - 500, atackSpeed);
+                root.style.setProperty("--atackSpeed", `${atackSpeedTemp}ms`);
+                enemies[enemie].classList.add("attack");
+                point();
+                console.log(atackSpeedTemp);
+                setTimeout(repeatingFunc, atackSpeedTemp);
+            }, 500);
         }
-
-        enemie = getRndInteger(0, 2);
-
-        if (enemie === 2) {
-            enemies[enemie].classList.add("special-attack-jump");
-        } else if (enemie === 1) {
-            enemies[enemie].classList.add("special-attack-forward");
-        } else {
-            enemies[enemie].classList.add("attack");
-        }
-
-        setTimeout(repeatingFunc, atackSpeed);
     }
 
     setTimeout(repeatingFunc, atackSpeed);
@@ -135,7 +120,7 @@ const hitbox = () => {
 const isLive = setInterval(() => {
     if (isStarted) {
         if (elementsOverlap(hitboxDiv, carnivorousPlant)) {
-            gameOver(carnivorousPlant);
+            //gameOver(carnivorousPlant);
         } else if (elementsOverlap(hitboxDiv, piranhaBean)) {
             gameOver(piranhaBean);
         } else if (elementsOverlap(hitboxDiv, goomba)) {
