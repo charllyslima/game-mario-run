@@ -16,6 +16,10 @@ const audioMarioDie = document.querySelector("#mario-die-audio");
 
 const mario = document.querySelector("#mario");
 const marioDie = document.querySelector("#mario-die");
+const marioPunch = document.querySelector("#mario-punch");
+
+const yoshiRunner = document.querySelector("#yoshi-runnner");
+
 const piranhaBean = document.querySelector("#piranha-bean");
 const goomba = document.querySelector("#goomba");
 const bowser = document.querySelector("#bowser");
@@ -35,7 +39,14 @@ let isStarted = false;
 window.addEventListener("load", function () {
     buttonStart.addEventListener("click", start);
     buttonSound.addEventListener("click", soundOnOff);
-    document.addEventListener("keydown", jump);
+    document.addEventListener("keydown", (e) => {
+        
+        if (e.key == "ArrowUp") {
+            jump();
+        } else if (e.key == " ") {
+            punch();
+        }
+    });
 });
 
 if (localStorage.getItem("high-score")) {
@@ -120,20 +131,30 @@ const hitbox = () => {
 const isLive = setInterval(() => {
     if (isStarted) {
         if (elementsOverlap(hitboxDiv, carnivorousPlant)) {
-            //gameOver(carnivorousPlant);
+            gameOver(carnivorousPlant);
         } else if (elementsOverlap(hitboxDiv, piranhaBean)) {
             gameOver(piranhaBean);
         } else if (elementsOverlap(hitboxDiv, goomba)) {
             gameOver(goomba);
         }
+        
     }
 }, 1);
 
 const gameOver = (enemy) => {
     audioMarioDie.play();
     mario.src = marioDie.src;
+    mario.style.bottom = window.getComputedStyle(mario).bottom;
+
     enemy.style.right = window.getComputedStyle(enemy).right;
     enemy.style.bottom = window.getComputedStyle(enemy).bottom;
+
+    if(enemy == carnivorousPlant){
+        const plant = carnivorousPlant.querySelector('#plant');
+        plant.style.bottom = window.getComputedStyle(plant).bottom;
+        plant.style.animation = 'none';
+    }
+    
     if (enemy.classList.contains("special-attack-jump")) {
         enemy.classList.remove("special-attack-jump");
     } else {
@@ -144,6 +165,7 @@ const gameOver = (enemy) => {
     floorPt2.classList.remove("floor-move-pt2");
     isStarted = false;
     clearInterval(isLive);
+    yoshiRunner.style.display = "block";
 };
 
 const point = () => {
@@ -176,12 +198,25 @@ const soundOnOff = () => {
 const jump = () => {
     if (!mario.classList.contains("jump") && isStarted) {
         mario.classList.add("jump");
-
+        audioJump.play();
         hitboxDiv.classList.add("jump");
         setTimeout(() => {
             mario.classList.remove("jump");
             hitboxDiv.classList.remove("jump");
         }, 500);
+    }
+};
+
+const punch = () => {
+    if (mario.src != marioPunch.src && isStarted) {
+        let srcDefault = mario.src;
+        mario.src = marioPunch.src;
+
+        setTimeout(() => {
+            if (isStarted) {
+                mario.src = srcDefault;
+            }
+        }, 750);
     }
 };
 

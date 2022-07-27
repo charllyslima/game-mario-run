@@ -33,11 +33,16 @@
 }
 
 .special-attack-forward {
-    animation: forward-attack calc(var(--atackSpeed)*3) linear infinite;
+    animation: forward-attack calc(var(--atackSpeed) * 3) linear infinite;
 }
 
 #plant {
     animation: plant-animation 1750ms linear infinite;
+}
+
+#yoshi-runnner {
+    animation: yoshi-runner 2s linear;
+    left: 130%;
 }
 
 .start {
@@ -141,7 +146,7 @@
     70% {
         right: 78%;
     }
-    75%{
+    75% {
         right: 64%;
     }
     80% {
@@ -179,5 +184,14 @@
     }
     to {
         left: 10%;
+    }
+}
+
+@keyframes yoshi-runner {
+    from {
+        left: 10%;
+    }
+    to {
+        left: 130%;
     }
 }
